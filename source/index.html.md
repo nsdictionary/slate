@@ -5,15 +5,19 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - ruby
   - php
   - javascript
-  - shell
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
 
 includes:
   - authentication
+  - api/intro
+  - api/create_user
+  - api/create_recipient
+  - api/user_info
+  - api/recipient_info
+  - api/create_transfer
   - errors
-  - example
 
 search: true
 ---

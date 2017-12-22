@@ -18,6 +18,7 @@ includes:
   - api/recipient_info
   - api/create_transfer
   - errors
+  - update_log
 
 search: true
 ---

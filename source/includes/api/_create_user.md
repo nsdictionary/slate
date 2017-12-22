@@ -11,6 +11,7 @@ phone_country_code |O| ISO ALPHA-2 Code
 phone_number |O| sender's phone number
 external_id |O| partner's user unique id
 first_name |O| sender's first name
+middle_name |X| sender's middle name
 last_name |O| sender's last name
 nationality |O| ISO ALPHA-2 Code
 birth_date |O| sender's birst date
@@ -24,9 +25,9 @@ email |X| sender's email
   "birth_date": "19890101",
   "external_id": "1",
   "last_name": "ryu",
-  "email": "sanghyun.ryu2@sentbe.com",
+  "email": "sanghyun.ryu@sentbe.com",
   "nationality": "KR",
-  "phone_number": "010-3369-1485",
+  "phone_number": "010-1234-1234",
   "first_name": "sanghyun"
 }
 ```
@@ -53,10 +54,10 @@ data['external_id'] | partner's user unique id
     "id": 47,
     "first_name": "sanghyun",
     "last_name": "ryu",
-    "email": "sanghyun.ryu1@sentbe.com",
+    "email": "sanghyun.ryu@sentbe.com",
     "created_at": "2017-12-12T15:30:30.000+09:00",
     "phone_country_code": "ID",
-    "phone_number": "010-3369-1485",
+    "phone_number": "010-1234-1234",
     "external_id": "1"
   }
 }

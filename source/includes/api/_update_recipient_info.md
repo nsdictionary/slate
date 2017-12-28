@@ -1,19 +1,33 @@
-## Recipient info
+## Update recipient info
 
 ### endpoint
-<code>/inbound/recipient_info</code>
+<code>/inbound/update_recipient_info</code>
 
 ### request
 
 Parameter | Requried | Description
 --------- | ------- | -----------
 recipient_id |O| recipient's unique id
+email |X| recipient's email
+phone_country_code |X| ISO ALPHA-2 Code
+phone_number |X| recipient's phone number
+birth_date |X| recipient's birst date
+bank_attributes['account_number'] |X| recipient's account number
+bank_attributes['account_holder_name'] |X| recipient's account holder name
+bank_attributes['branch'] |X| recipient's bank branch
 
 > request parameter JSON structured like this:
 
 ```json
 {
-  "recipient_id": "10"
+  "recipient_id": "11",
+  "email": "hong2@sentbe.com",
+  "bank_attributes": {
+    "name": "020",
+    "account_number": "56785678"
+  },
+  "phone_country_code": "KR",
+  "phone_number": "010-5566-7788"
 }
 ```
 
@@ -41,15 +55,15 @@ data['bank_attributes']['branch'] | recipient's bank branch
   "result": true,
   "data": {
     "id": 10,
-    "email": "hong@sentbe.com",
+    "email": "hong2@sentbe.com",
     "created_at": "2017-12-12T15:30:39.000+09:00",
     "phone_country_code": "KR",
-    "phone_number": "010-5678-5678",
+    "phone_number": "010-5566-7788",
     "birth_date": "19901201",
     "external_id": "1",
     "bank_attributes": {
-      "name": "002",
-      "account_number": "12341234",
+      "name": "020",
+      "account_number": "56785678",
       "account_holder_name": "gildong hong",
       "branch": null
     }

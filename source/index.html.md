@@ -16,6 +16,8 @@ includes:
   - api/create_recipient
   - api/user_info
   - api/recipient_info
+  - api/update_user_info
+  - api/update_recipient_info
   - api/create_transfer
   - errors
   - update_log

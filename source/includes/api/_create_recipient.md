@@ -1,7 +1,7 @@
 ## Create recipient
 
 ### endpoint
-<code>/inbound/user_recipient</code>
+<code>/inbound/create_recipient</code>
 
 ### request
 

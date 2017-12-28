@@ -8,6 +8,7 @@ The Sentbe API uses the following error codes:
 
 Error Code | Meaning
 ---------- | -------
+E0000 | Internal Server Error 
 E0001 | Authentication error -- auth_key/ip address
 E0002 | Invalid user id
 E0003 | Invalid recipeint id

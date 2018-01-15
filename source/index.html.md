@@ -35,3 +35,4 @@ We have language bindings in Shell, Ruby, and PHP! You can view code examples in
 
 # Getting Started
 TODO: 송금 방식에 대한 설명
+![Image](./images/api_graph.svg)

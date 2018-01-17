@@ -1,7 +1,11 @@
 ## Update recipient info
 
+<aside class="notice">
+수취인이 인증절차를 마친 뒤에는 정보를 수정할 수 없습니다.
+</aside>
+
 ### endpoint
-<code>/inbound/update_recipient_info</code>
+<code>POST: /inbound/update_recipient_info</code>
 
 ### request
 

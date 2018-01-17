@@ -67,6 +67,7 @@ echo $auth_key;
 javascript를 사용할 경우 <code>CryptoJS v3.1.2</code>(https://code.google.com/archive/p/crypto-js/) 라이브러리를 사용합니다.
 </aside>
 
+
 ## 3. Encryption request body
 api 호출시 전달할 파라미터가 있다면 json문자열을 암호화해서 헤더에 넣어서 보내야 합니다.
 json string을 사전에 발급받은 secret_key를 사용해 우측의 암호화 로직을 참고해서 파라미터 정보를 암호화 하면 됩니다.
@@ -310,8 +311,9 @@ console.log(dec);
 </aside>
 
 <aside class="notice">
-javascript를 사용할 경우 <code>CryptoJS v3.1.2</code>(https://code.google.com/archive/p/crypto-js/) 라이브러리를 사용합니다.
+암복호화 로직은 오픈소스 <code>cryptojs-aes-php</code>(https://github.com/brainfoolong/cryptojs-aes-php)를 기반으로 되어있습니다.
 </aside>
+
 
 ## 4. Set request header
 

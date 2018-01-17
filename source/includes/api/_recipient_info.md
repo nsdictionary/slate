@@ -1,7 +1,7 @@
 ## Recipient info
 
 ### endpoint
-<code>/inbound/recipient_info</code>
+<code>POST: /inbound/recipient_info</code>
 
 ### request
 

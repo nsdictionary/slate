@@ -1,0 +1,30 @@
+## Bank info
+
+### endpoint
+<code>GET: /inbound/bank_info</code>
+
+### request
+No params
+
+> request parameter JSON structured like this:
+
+```json
+{
+  "result": true,
+  "data": {
+    "002": {
+      "label": "KDB산업"
+    },
+    "032": {
+      "label": "부산은행"
+    },...{}
+  }
+}
+```
+
+### response
+Parameter | Description
+--------- | -----------
+result | response success info(true/false)
+data.keys | bank codes
+data[key]['label'] | bank display name

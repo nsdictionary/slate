@@ -1,7 +1,7 @@
 ## Update user info
 
 ### endpoint
-<code>/inbound/update_user_info</code>
+<code>POST: /inbound/update_user_info</code>
 
 ### request
 

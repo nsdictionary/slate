@@ -1,7 +1,7 @@
 ## Create user
 
 ### endpoint
-<code>/inbound/user_info</code>
+<code>POST: /inbound/user_info</code>
 
 ### request
 

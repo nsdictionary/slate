@@ -1,4 +1,4 @@
-## Check commission
+## check_commission
 
 송금금액, 수취금액 및 요금 정보를 조회합니다.
 

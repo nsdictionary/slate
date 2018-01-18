@@ -1,4 +1,4 @@
-## User info
+## user_info
 
 송금인 정보를 조회합니다.
 

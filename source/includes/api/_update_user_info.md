@@ -1,4 +1,4 @@
-## Update user info
+## update_user_info
 
 송금인 정보를 업데이트 합니다.
 

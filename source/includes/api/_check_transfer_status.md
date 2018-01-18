@@ -1,4 +1,4 @@
-## Check transfer status
+## check_transfer_status
 
 송금 프로세스 진행 정보를 조회합니다.
 

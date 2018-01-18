@@ -1,4 +1,4 @@
-## Recipient info
+## recipient_info
 
 수취인 정보를 조회합니다.
 

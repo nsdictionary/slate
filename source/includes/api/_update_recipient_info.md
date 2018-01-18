@@ -1,4 +1,4 @@
-## Update recipient info
+## update_recipient_info
 
 수취인 정보를 업데이트 합니다.
 

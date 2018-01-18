@@ -1,5 +1,7 @@
 ## Update recipient info
 
+수취인 정보를 업데이트 합니다.
+
 <aside class="notice">
 수취인이 인증절차를 마친 뒤에는 정보를 수정할 수 없습니다.
 </aside>

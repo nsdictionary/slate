@@ -1,5 +1,7 @@
 ## Recipient info
 
+수취인 정보를 조회합니다.
+
 ### endpoint
 <code>POST: /inbound/recipient_info</code>
 

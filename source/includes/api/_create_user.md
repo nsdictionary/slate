@@ -1,5 +1,7 @@
 ## Create user
 
+송금인 정보를 보내서 모델을 생성합니다.
+
 ### endpoint
 <code>POST: /inbound/user_info</code>
 

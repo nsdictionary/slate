@@ -19,6 +19,7 @@ includes:
   - api/update_user_info
   - api/update_recipient_info
   - api/bank_info
+  - api/balance_info
   - api/create_transfer
   - errors
   - update_log

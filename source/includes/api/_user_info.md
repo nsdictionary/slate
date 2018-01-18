@@ -1,5 +1,7 @@
 ## User info
 
+송금인 정보를 조회합니다.
+
 ### endpoint
 <code>POST: /inbound/user_info</code>
 

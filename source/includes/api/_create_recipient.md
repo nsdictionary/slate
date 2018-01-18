@@ -1,5 +1,7 @@
 ## Create recipient
 
+수취인 정보를 보내서 모델을 생성합니다.
+
 ### endpoint
 <code>POST: /inbound/create_recipient</code>
 

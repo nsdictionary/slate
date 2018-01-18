@@ -1,5 +1,7 @@
 ## Bank info
 
+수취인 정보를 생성할때 사용할수 있는 은행 리스트를 조회할 수 있습니다.
+
 ### endpoint
 <code>GET: /inbound/bank_info</code>
 

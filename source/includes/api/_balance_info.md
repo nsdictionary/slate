@@ -8,7 +8,7 @@
 ### request
 No params
 
-> request parameter JSON structured like this:
+> response parameter JSON structured like this:
 
 ```json
 {

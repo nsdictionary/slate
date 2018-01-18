@@ -1,6 +1,6 @@
 ## create_transfer
 
-송금 프로세스를 진행합니다.
+Proceed the remit process.
 
 ### endpoint
 <code>GET: /inbound/create_transfer</code>
@@ -68,6 +68,11 @@ data['total_amount_currency'] | total amount currency('KRW')
 transfer_amount must be intgeger format
 </aside>
 
-<aside class="warning">
-response의 data['transfer_id']를 디비에 저장해 두어야 나중에 정보를 수정하거나 호출할 수 있습니다.
+<aside class="notice">
+If the recipient did not proceed with the verification process, the verification link will be sent by SMS, and the remittance will proceed when the verification is completed.
 </aside>
+
+<aside class="warning">
+You must save the response's <code>data['transfer_id']</code> in the database before you can modify or invoke the information.
+</aside>
+

@@ -1,7 +1,7 @@
 # Errors
 
 <aside class="notice">
-우측에 error response format을 참고하세요
+See the error response format on the right side.
 </aside>
 
 The Sentbe API uses the following error codes:

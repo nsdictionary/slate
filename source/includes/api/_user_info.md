@@ -1,6 +1,6 @@
 ## user_info
 
-송금인 정보를 조회합니다.
+View the sender information.
 
 ### endpoint
 <code>POST: /inbound/user_info</code>

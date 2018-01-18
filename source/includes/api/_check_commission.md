@@ -1,6 +1,6 @@
 ## check_commission
 
-송금금액, 수취금액 및 요금 정보를 조회합니다.
+Inquiry the send amount, receive amount, and the commission information.
 
 ### endpoint
 <code>GET: /inbound/check_commission</code>

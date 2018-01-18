@@ -1,21 +1,21 @@
 # Authentication
 
 ## 1. Get partner access infomations
-인증에는 사전에 Sentbe로부터 받은 3가지 정보가 필요합니다.
+You need three pieces of information sent from Sentbe in advance in the certification process.
 
 - <code>partner_id</code>
 - <code>access_id</code>
 - <code>secret_key</code>
 
 <aside class="warning">
-access_id, secret_key는 비밀정보입니다. 외부에 노출하거나 보안에 취약한곳에 저장하면 안됩니다.
+The <code>access_id</code> and <code>secret_key</code> are secret information. Do not expose it to the outside or store it in a location that is not secure.
 </aside>
 
 
 ## 2. Encryption authorization key
-partner_id와 access_id를 "parner_id:access_id"와 같은 문자열로 만들고 secret_key를 사용해 sha256 방식으로 암호화 합니다.
+Make <code>partner_id</code> and <code>access_id</code> a string such as <code>"partner_id:access_id"</code> and encrypt using sha256 using secret_key.
 
-> 인증키 생성 코드
+> authentication key generation code
 
 ```ruby
 require 'openssl'
@@ -60,17 +60,17 @@ echo $auth_key;
 ```
 
 <aside class="notice">
-반드시 <code>parner_id</code>, <code>access_id</code>, <code>secret_key</code>는 사전에 할당받은 값을 사용해야 합니다.
+The <code>partner_id</code>, <code>access_id</code>, and <code>secret_key</code> must use pre-assigned values.
 </aside>
 
 <aside class="notice">
-javascript를 사용할 경우 <code>CryptoJS v3.1.2</code>(https://code.google.com/archive/p/crypto-js/) 라이브러리를 사용합니다.
+If you use javascript, use the <code>CryptoJS v3.1.2</code>(https://code.google.com/archive/p/crypto-js/) library.
 </aside>
 
 
 ## 3. Encryption request body
-api 호출시 전달할 파라미터가 있다면 json문자열을 암호화해서 헤더에 넣어서 보내야 합니다.
-json string을 사전에 발급받은 secret_key를 사용해 우측의 암호화 로직을 참고해서 파라미터 정보를 암호화 하면 됩니다.
+If you have parameters to pass when calling api, you should encrypt the json string and put it in the header.
+you can encrypt the parameter information by referring to the encryption logic on the right using the secret_key that has been issued in advance with the json string.
 
 > request parameter json string 암복호화 로직
 
@@ -307,23 +307,23 @@ console.log(dec);
 ```
 
 <aside class="notice">
-테스트 버전 정보 ruby <code>2.3.1</code>, php <code>7.1.7</code>
+Test version information: ruby <code>2.3.1</code>, php <code>7.1.7</code>
 </aside>
 
 <aside class="notice">
-암복호화 로직은 오픈소스 <code>cryptojs-aes-php</code>(https://github.com/brainfoolong/cryptojs-aes-php)를 기반으로 되어있습니다.
+The encryption decryption logic is based on the open source <code> cryptojs-aes-php </code> (https://github.com/brainfoolong/cryptojs-aes-php).
 </aside>
 
 
 ## 4. Set request header
 
 - <code>Content-Type</code> : "application/json; charset=utf-8"
-- <code>PARTNER-ID</code> : 사전에 발급받은 partner id
-- <code>KEY</code> : 2번 항목에서 암호화한 인증 키
-- <code>SIGNATURE</code> : 전송할 request 파라미터가 있다면 3번에서 암호화한 값
+- <code>PARTNER-ID</code> : The partner ID
+- <code>KEY</code> : Authentication key encrypted in <a href="#2-encryption-authorization-key">step 2</a>
+- <code>SIGNATURE</code> : If there is a request parameter to be transmitted, the value encrypted in <a href="#3-encryption-request-body">step 3</a>
 
 <aside class="notice">
-파라미터를 전송하지 않아도 되는 endpoint에는 <code>SIGNATURE</code> 를 생략할 수 있습니다.
+You can omit <code>SIGNATURE</code> for endpoints that do not need to send parameters.
 </aside>
 
 > request header value structure

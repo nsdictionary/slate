@@ -1,6 +1,6 @@
 ## update_user_info
 
-송금인 정보를 업데이트 합니다.
+Update the sender information.
 
 ### endpoint
 <code>POST: /inbound/update_user_info</code>

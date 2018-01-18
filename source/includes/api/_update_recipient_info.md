@@ -1,10 +1,6 @@
 ## update_recipient_info
 
-수취인 정보를 업데이트 합니다.
-
-<aside class="notice">
-수취인이 인증절차를 마친 뒤에는 정보를 수정할 수 없습니다.
-</aside>
+Update the payee information.
 
 ### endpoint
 <code>POST: /inbound/update_recipient_info</code>
@@ -76,3 +72,8 @@ data['bank_attributes']['branch'] | recipient's bank branch
   }
 }
 ```
+
+<aside class="warning">
+Once the recipient has completed the verification process, the information can not be edited.
+</aside>
+

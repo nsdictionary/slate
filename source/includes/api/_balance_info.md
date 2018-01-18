@@ -1,6 +1,6 @@
 ## balance
 
-프리펀딩으로 사전에 충전된 크레딧 잔량을 조회합니다.
+View the Sentbe credit balance. (Prefunding)
 
 ### endpoint
 <code>GET: /inbound/balance</code>

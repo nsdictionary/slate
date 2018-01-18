@@ -7,7 +7,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - javascript
 
 toc_footers:
-  - <a href='mailto:dev@sentbe.com'>Contact for a Developer Key</a>
+  - <a href='mailto:dev@sentbe.com'>Contact for registration</a>
 
 includes:
   - authentication
@@ -32,7 +32,7 @@ search: true
 
 # Introduction
 
-TODO: inbound service 소개글 작성<br/><br/>
+TODO: inbound service 소개<br/><br/>
 Welcome to the Sentbe API! You can use our API to access Sentbe API endpoints, which can get information on remittance.
 
 We have language bindings in Shell, Ruby, and PHP! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.

@@ -1,6 +1,6 @@
 ## create_recipient
 
-수취인 정보를 보내서 모델을 생성합니다.
+Send your payee information to create a model.
 
 ### endpoint
 <code>POST: /inbound/create_recipient</code>
@@ -19,7 +19,7 @@ country |O| ISO ALPHA-2 Code
 birth_date |O| recipient's birst date
 user_id |O| 'user_id' on create_user response
 email |X| recipient's email
-bank_attributes['name'] |O| recipient's bank code
+bank_attributes['name'] |O| recipient's bank code<br/><a href="#bank_info">See bank_info request</a>
 bank_attributes['account_number'] |O| recipient's account number
 bank_attributes['account_holder_name'] |O| recipient's account holder name
 bank_attributes['branch'] |X| recipient's bank branch
@@ -87,5 +87,5 @@ data['bank_attributes']['branch'] | recipient's bank branch
 
 
 <aside class="warning">
-response의 data['id']를 디비에 저장해 두어야 나중에 정보를 수정하거나 호출할 수 있습니다.
+The <code>data ['id']</code> of the response must be stored in the database before you can modify or invoke the information.
 </aside>

@@ -1,6 +1,6 @@
 ## create_user
 
-송금인 정보를 보내서 모델을 생성합니다.
+Send the sender information to create the model.
 
 ### endpoint
 <code>POST: /inbound/user_info</code>
@@ -67,5 +67,5 @@ data['external_id'] | partner's user unique id
 
 
 <aside class="warning">
-response의 data['id']를 디비에 저장해 두어야 나중에 정보를 수정하거나 호출할 수 있습니다.
+The <code>data ['id']</code> of the response must be stored in the database before you can modify or invoke the information.
 </aside>

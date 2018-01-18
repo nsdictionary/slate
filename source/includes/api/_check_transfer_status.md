@@ -1,6 +1,6 @@
 ## check_transfer_status
 
-송금 프로세스 진행 정보를 조회합니다.
+View the remit process progress information.
 
 ### endpoint
 <code>GET: /inbound/check_transfer_status</code>
@@ -32,7 +32,7 @@ data['receive_amount'] | receive amount
 data['receive_amount_currency'] | receive amount currency
 data['commission'] | sentbe commission amount
 data['commission_currency'] | commission currency('KRW')
-data['status'] | Waiting verification<br/> Processing<br/> AML filtered<br/> Complete<br/> Canceled<br/> Expired<br/> Refunded<br/>
+data['status'] | Waiting verification<br/> Processing<br/> AML filtered<br/> Complete<br/> Canceled<br/> Expired<br/> Refunded<br/><a href="#3-transfer-status">See transfer status</a>
 data['created_at'] | transfer created time
 
 > response JSON structured like this:

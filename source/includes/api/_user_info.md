@@ -43,7 +43,7 @@ data['external_id'] | partner's user unique id
     "last_name": "ryu",
     "email": "sanghyun.ryu@sentbe.com",
     "created_at": "2017-12-12T15:30:30.000+09:00",
-    "phone_country_code": "ID",
+    "phone_country_code": "US",
     "phone_number": "010-1234-1234",
     "external_id": "1"
   }

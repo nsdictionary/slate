@@ -21,7 +21,7 @@ birth_date |X| sender's birst date
 {
   "user_id": "47",
   "email": "sanghyun.ryu2@sentbe.com",
-  "phone_country_code": "ID",
+  "phone_country_code": "US",
   "phone_number": "010-1122-3344",
   "birth_date": "19891212"
 }
@@ -51,7 +51,7 @@ data['external_id'] | partner's user unique id
     "last_name": "ryu",
     "email": "sanghyun.ryu2@sentbe.com",
     "created_at": "2017-12-12T15:30:30.000+09:00",
-    "phone_country_code": "ID",
+    "phone_country_code": "US",
     "phone_number": "010-1122-3344",
     "external_id": "1"
   }

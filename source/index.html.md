@@ -22,6 +22,8 @@ includes:
   - api/balance_info
   - api/check_commission
   - api/create_transfer
+  - api/check_transfer_status
+  - callback
   - errors
   - update_log
 

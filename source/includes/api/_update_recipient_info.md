@@ -13,7 +13,7 @@ recipient_id |O| recipient's unique id
 email |X| recipient's email
 phone_country_code |X| ISO ALPHA-2 Code
 phone_number |X| recipient's phone number
-birth_date |X| recipient's birst date
+birth_date |X| recipient's birth date
 bank_attributes['account_number'] |X| recipient's account number
 bank_attributes['account_holder_name'] |X| recipient's account holder name
 bank_attributes['branch'] |X| recipient's bank branch
@@ -38,7 +38,7 @@ Parameter | Description
 --------- | -----------
 result | response success info(true/false)
 data['id'] | recipient's unique id
-data['first_name'] | recipient's firstname
+data['first_name'] | recipient's first name
 data['last_name'] | recipient's last name
 data['email'] | recipient's email
 data['created_at'] | recipient created time

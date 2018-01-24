@@ -47,7 +47,10 @@ Follow the given steps to start distribution with Sentbe:
 4. Track your requests via API.
 
 ## 1. Sender prefunds in USD
-Sentbe can only accept USD prefunds due to series of compliance issues. However, partners may choose the option to either exchange prefunds into local currency(KRW) credit at once by the time funds arrive or exchange into local currency at the time of each payout requests. 
+Sentbe can only accept USD prefunds due to series of compliance issues. That's why we are trying to give best exchange rate for KRW/USD in this market. 
+
+As soon as prefunds arrived at settlement bank account shall be credited to USD wallet. 
+Per each payout made, we shall convert credit from partner's USD wallet to KRW (Local Currency) using Sentbe exchange rate given at real-time.
 
 Please feel free to contact us at <a href="mailto:contact@sentbe.com">inbound@sentbe.com</a> for further inquiries on prefunding.
 

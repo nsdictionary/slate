@@ -56,10 +56,10 @@ Please feel free to contact us at <a href="mailto:contact@sentbe.com">inbound@se
 
 ## 2. Sender generates distribution requests
 Sender generates a create_transfer API call to initiate a transfer to the recipient. As of now, local bank account is the only option available for fund transfer in Korea.
-Once you've made the create_transfer API call, Sentbe will instantly sned verification request to recipient.
+Once you've made the create_transfer API call, Sentbe will instantly send verification request to recipient.
 (In case the recipient has already completed verfication, verification process will be skipped.)
 
-As soon as recipient complete verification, Sentbe proceesses payout to recipient taking less than a minute to arrive.
+As soon as recipient completes verification, Sentbe processes payout to recipient taking less than a minute to arrive.
 
 ## 3. Real-time update on payout progress
 Partners may track payout progress real-time via API updates. We have 7-stage status updates for partners.

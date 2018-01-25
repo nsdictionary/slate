@@ -12,8 +12,8 @@ user_id |O| user's unique id
 recipient_id |O| recipient's unique id
 transfer_amount |O| transfer amount
 calc_by |O| S: Calculated by Sending Currency <br/> P: Calculated by Payout Currency
-send_amount_currency |O| send amount currency
-receive_amount_currency |O| receive amount currency('KRW')
+send_amount_currency |O| send amount currency('USD' fixed value)
+receive_amount_currency |O| receive amount currency('KRW' fixed value)
 external_id |O| partner's transfer unique id
 
 > request parameter JSON structured like this:

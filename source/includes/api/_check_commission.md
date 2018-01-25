@@ -9,8 +9,8 @@ Inquire the send amount, receive amount, and the commission information.
 Parameter | Requried | Description
 --------- | ------- | -----------
 transfer_amount |O| transfer amount
-send_amount_currency |O| send amount currency
-receive_amount_currency |O| receive amount currency('KRW')
+send_amount_currency |O| send amount currency('USD' fixed value)
+receive_amount_currency |O| receive amount currency('KRW' fixed value)
 calc_by |O| S: Calculated by Sending Currency <br/> P: Calculated by Payout Currency
 
 > request parameter JSON structured like this:

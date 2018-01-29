@@ -16,7 +16,7 @@ first_name |O| recipient's first name
 middle_name |X| recipient's middle name
 last_name |O| recipient's last name
 country |O| ISO ALPHA-2 Code
-birth_date |O| recipient's birst date
+birth_date |O| recipient's birth date
 user_id |O| 'user_id' on create_user response
 email |X| recipient's email
 bank_attributes['name'] |O| recipient's bank code<br/><a href="#bank_info">See bank_info request</a>
@@ -50,7 +50,7 @@ Parameter | Description
 --------- | -----------
 result | response success info(true/false)
 data['id'] | recipient's unique id
-data['first_name'] | recipient's firstname
+data['first_name'] | recipient's first name
 data['last_name'] | recipient's last name
 data['email'] | recipient's email
 data['created_at'] | recipient created time

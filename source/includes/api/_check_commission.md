@@ -1,6 +1,6 @@
 ## check_commission
 
-Inquiry the send amount, receive amount, and the commission information.
+Inquire the send amount, receive amount, and the commission information.
 
 ### endpoint
 <code>GET: /inbound/check_commission</code>
@@ -8,9 +8,9 @@ Inquiry the send amount, receive amount, and the commission information.
 ### request
 Parameter | Requried | Description
 --------- | ------- | -----------
-transfer_amount |O| trnasfer amount
-send_amount_currency |O| send amount currency
-receive_amount_currency |O| receive amount currency('KRW')
+transfer_amount |O| transfer amount
+send_amount_currency |O| send amount currency('USD' fixed value)
+receive_amount_currency |O| receive amount currency('KRW' fixed value)
 calc_by |O| S: Calculated by Sending Currency <br/> P: Calculated by Payout Currency
 
 > request parameter JSON structured like this:
@@ -53,5 +53,5 @@ total_amount_currency | total amount currency('KRW')
 ```
 
 <aside class="notice">
-transfer_amount must be intgeger format
+transfer_amount must be in integer format
 </aside>

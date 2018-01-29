@@ -24,12 +24,12 @@ Parameter | Description
 --------- | -----------
 result | response success info(true/false)
 data['id'] | user's unique id
-data['first_name'] | user's firstname
+data['first_name'] | user's first name
 data['last_name'] | user's last name
-data['email'] | users's email
+data['email'] | user's email
 data['created_at'] | user created time
 data['phone_country_code'] | phone country code
-data['phone_number'] | users's phone number
+data['phone_number'] | user's phone number
 data['external_id'] | partner's user unique id
 
 > response JSON structured like this:

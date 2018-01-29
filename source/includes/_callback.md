@@ -1,20 +1,20 @@
 # Callback transfer status
 
 ## 1. Set callback user
-You must register the callback url information to the Sentbe server in advance to receive the Transfer status.
+You must register the callback url information to the Sentbe server in advance to receive the transfer status.
 
 <aside class="notice">
 e.g. http://example.com/setnbe_callback
 </aside>
 
 ## 2. Set callback receiver
-You need to be able to receive a callback request from your partner's web server so that you can receive the status information from Sentbe. The request information issued from the cent file is the same as the right side json format.
+You need to be able to receive a callback request from your partner's web server so that you can receive the status information from Sentbe. The request information issued from the sentbe server is the same as the right side json format.
 
 ### request
 Parameter | Description
 --------- | -----------
 token | partner's access_id
-external_id | partner's transer unique id
+external_id | partner's transfer unique id
 status | transfer status
 
 > request parameter JSON structured like this:

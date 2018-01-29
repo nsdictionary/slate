@@ -12,9 +12,9 @@ user_id |O| user's unique id
 recipient_id |O| recipient's unique id
 transfer_amount |O| transfer amount
 calc_by |O| S: Calculated by Sending Currency <br/> P: Calculated by Payout Currency
-send_amount_currency |O| send amount currency
-receive_amount_currency |O| receive amount currency('KRW')
-external_id |O| partner's transer unique id
+send_amount_currency |O| send amount currency('USD' fixed value)
+receive_amount_currency |O| receive amount currency('KRW' fixed value)
+external_id |O| partner's transfer unique id
 
 > request parameter JSON structured like this:
 
@@ -65,11 +65,11 @@ data['total_amount_currency'] | total amount currency('KRW')
 ```
 
 <aside class="notice">
-transfer_amount must be intgeger format
+transfer_amount must be in integer format
 </aside>
 
 <aside class="notice">
-If the recipient did not proceed with the verification process, the verification link will be sent by SMS, and the remittance will proceed when the verification is completed.
+If the recipient did not proceed with the verification process, a verification link will be sent by SMS, and the remittance will proceed when the verification is completed.
 </aside>
 
 <aside class="warning">

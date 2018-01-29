@@ -24,7 +24,7 @@ Parameter | Description
 --------- | -----------
 result | response success info(true/false)
 data['id'] | recipient's unique id
-data['first_name'] | recipient's firstname
+data['first_name'] | recipient's first name
 data['last_name'] | recipient's last name
 data['email'] | recipient's email
 data['created_at'] | recipient created time

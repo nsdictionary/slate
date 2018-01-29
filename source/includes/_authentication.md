@@ -1,6 +1,6 @@
 # Authentication
 
-## 1. Get partner access infomations
+## 1. Get partner access information
 You need three pieces of information sent from Sentbe in advance in the certification process.
 
 - <code>partner_id</code>
@@ -8,12 +8,12 @@ You need three pieces of information sent from Sentbe in advance in the certific
 - <code>secret_key</code>
 
 <aside class="warning">
-The <code>access_id</code> and <code>secret_key</code> are secret information. Do not expose it to the outside or store it in a location that is not secure.
+The <code>access_id</code> and <code>secret_key</code> are secret information. Do not expose it outside or store it in a location that is not secure.
 </aside>
 
 
 ## 2. Encryption authorization key
-Make <code>partner_id</code> and <code>access_id</code> a string such as <code>"partner_id:access_id"</code> and encrypt using sha256 using secret_key.
+Make <code>partner_id</code> and <code>access_id</code> a string such as <code>"partner_id:access_id"</code> and encryption sha256 using secret_key.
 
 > authentication key generation code
 
@@ -70,7 +70,7 @@ If you use javascript, use the <code>CryptoJS v3.1.2</code>(https://code.google.
 
 ## 3. Encryption request body
 If you have parameters to pass when calling api, you should encrypt the json string and put it in the header.
-you can encrypt the parameter information by referring to the encryption logic on the right using the secret_key that has been issued in advance with the json string.
+You can encrypt the parameter information by referring to the encryption logic on the right using the secret_key that has been issued in advance with the json string.
 
 > request parameter json string 암복호화 로직
 

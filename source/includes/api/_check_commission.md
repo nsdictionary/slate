@@ -43,12 +43,12 @@ total_amount_currency | total amount currency('KRW')
 {
   "send_amount": "100.0",
   "send_amount_currency": "USD",
-  "receive_amount": "114500.0",
+  "receive_amount": "114271.0",
   "receive_amount_currency": "KRW",
-  "commission": "2863.0",
-  "commission_currency": "KRW",
-  "total_amount": "117363.0",
-  "total_amount_currency": "KRW"
+  "commission": "2.5",
+  "commission_currency": "USD",
+  "total_amount": "102.5",
+  "total_amount_currency": "USD"
 }
 ```
 

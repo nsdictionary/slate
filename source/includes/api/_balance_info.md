@@ -14,8 +14,8 @@ No params
 {
   "result": true,
   "data": {
-    "amount": 12409925.0,
-    "currency": "KRW"
+    "amount": 10000.0,
+    "currency": "USD"
   }
 }
 ```
@@ -25,4 +25,4 @@ Parameter | Description
 --------- | -----------
 result | response success info(true/false)
 data['amount'] | credit amount
-data['currency'] | credit currency('KRW' fixed value)
+data['currency'] | credit currency('USD' fixed value)

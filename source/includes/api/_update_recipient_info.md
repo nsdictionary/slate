@@ -44,7 +44,6 @@ data['email'] | recipient's email
 data['created_at'] | recipient created time
 data['phone_country_code'] | phone country code
 data['phone_number'] | recipient's phone number
-data['external_id'] | partner's user unique id
 data['bank_attributes']['name'] | recipient's bank code
 data['bank_attributes']['account_number'] | recipient's account number
 data['bank_attributes']['account_holder_name'] | recipient's account holder name
@@ -62,7 +61,6 @@ data['bank_attributes']['branch'] | recipient's bank branch
     "phone_country_code": "KR",
     "phone_number": "010-5566-7788",
     "birth_date": "19901201",
-    "external_id": "1",
     "bank_attributes": {
       "name": "020",
       "account_number": "56785678",

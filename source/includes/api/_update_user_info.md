@@ -38,7 +38,6 @@ data['email'] | user's email
 data['created_at'] | user created time
 data['phone_country_code'] | phone country code
 data['phone_number'] | user's phone number
-data['external_id'] | partner's user unique id
 
 > response JSON structured like this:
 
@@ -52,8 +51,7 @@ data['external_id'] | partner's user unique id
     "email": "sanghyun.ryu2@sentbe.com",
     "created_at": "2017-12-12T15:30:30.000+09:00",
     "phone_country_code": "US",
-    "phone_number": "010-1122-3344",
-    "external_id": "1"
+    "phone_number": "010-1122-3344"
   }
 }
 ```

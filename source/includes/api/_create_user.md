@@ -11,7 +11,6 @@ Parameter | Requried | Description
 --------- | ------- | -----------
 phone_country_code |O| ISO ALPHA-2 Code
 phone_number |O| sender's phone number
-external_id |O| partner's user unique id
 first_name |O| sender's first name
 middle_name |X| sender's middle name
 last_name |O| sender's last name
@@ -25,7 +24,6 @@ email |X| sender's email
 {
   "phone_country_code": "US",
   "birth_date": "19890101",
-  "external_id": "1",
   "last_name": "ryu",
   "email": "sanghyun.ryu@sentbe.com",
   "nationality": "US",
@@ -45,7 +43,6 @@ data['email'] | user's email
 data['created_at'] | user created time
 data['phone_country_code'] | phone country code
 data['phone_number'] | user's phone number
-data['external_id'] | partner's user unique id
 
 > response JSON structured like this:
 
@@ -59,8 +56,7 @@ data['external_id'] | partner's user unique id
     "email": "sanghyun.ryu@sentbe.com",
     "created_at": "2017-12-12T15:30:30.000+09:00",
     "phone_country_code": "US",
-    "phone_number": "010-1234-1234",
-    "external_id": "1"
+    "phone_number": "010-1234-1234"
   }
 }
 ```

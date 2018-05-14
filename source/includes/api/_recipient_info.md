@@ -1,23 +1,12 @@
-## recipient_info
+## recipient info
 
 View your payee information.
 
 ### endpoint
-<code>POST: /inbound/recipient_info</code>
+<code>GET: /inbound/recipients/:id</code>
 
 ### request
-
-Parameter | Requried | Description
---------- | ------- | -----------
-recipient_id |O| recipient's unique id
-
-> request parameter JSON structured like this:
-
-```json
-{
-  "recipient_id": "10"
-}
-```
+No params
 
 ### response
 Parameter | Description

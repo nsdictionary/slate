@@ -1,23 +1,12 @@
-## user_info
+## user info
 
 View the sender information.
 
 ### endpoint
-<code>POST: /inbound/user_info</code>
+<code>GET: /inbound/users/:id</code>
 
 ### request
-
-Parameter | Requried | Description
---------- | ------- | -----------
-user_id |O| user's unique id
-
-> request parameter JSON structured like this:
-
-```json
-{
-  "user_id": "47"
-}
-```
+No params
 
 ### response
 Parameter | Description

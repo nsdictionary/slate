@@ -1,9 +1,9 @@
-## bank_info
+## bank info
 
 You can view a list of banks that you can use when generating payee information.
 
 ### endpoint
-<code>GET: /inbound/bank_info</code>
+<code>GET: /inbound/banks</code>
 
 ### request
 No params
@@ -12,13 +12,14 @@ No params
 
 ```json
 {
+
   "result": true,
   "data": {
-    "002": {
-      "label": "KDB산업"
+     "10316": {
+      "label": "새마을은행"
     },
-    "032": {
-      "label": "부산은행"
+    "10307": {
+      "label": "IBK기업"
     },...{}
   }
 }

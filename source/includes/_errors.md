@@ -8,7 +8,7 @@ The Sentbe API uses the following error codes:
 
 Error Code | Meaning
 ---------- | -------
-E0000 | Internal Server Error 
+E0000 | Internal Server Error
 E0001 | Authentication error -- auth_key/ip address
 E0002 | Invalid model id
 E0003 | Invalid header key
@@ -21,6 +21,8 @@ E0009 | Invalid transfer status
 E0010 | Can't update recipient information
 E0011 | Invalid country code
 E0012 | Not supported bank
+E0013 | Invalid external transfer id
+E0014 | Low balance
 
 > error response parameter JSON structured like this:
 

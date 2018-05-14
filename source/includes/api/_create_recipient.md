@@ -1,9 +1,9 @@
-## create_recipient
+## create recipient
 
 Send your payee information to create a model.
 
 ### endpoint
-<code>POST: /inbound/create_recipient</code>
+<code>POST: /inbound/recipients</code>
 
 ### request
 

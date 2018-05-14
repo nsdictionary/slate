@@ -1,9 +1,9 @@
-## create_user
+## create user
 
 Send the sender information to create the model.
 
 ### endpoint
-<code>POST: /inbound/create_user</code>
+<code>POST: /inbound/users</code>
 
 ### request
 

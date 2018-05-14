@@ -3,7 +3,9 @@
 View the Sentbe credit balance. (Prefunding)
 
 ### endpoint
-<code>GET: /inbound/balance</code>
+<code>GET: /inbound/balances</code>
+
+<code>GET: /inbound/balances/:currency</code>
 
 ### request
 No params
@@ -13,10 +15,16 @@ No params
 ```json
 {
   "result": true,
-  "data": {
-    "amount": 10000.0,
-    "currency": "USD"
-  }
+  "data": [
+    {
+      "amount": 10000.0,
+      "currency": "USD"
+    },
+    {
+      "amount": 15000000.0,
+      "currency": "KRW"
+    }
+  ]
 }
 ```
 
@@ -25,4 +33,4 @@ Parameter | Description
 --------- | -----------
 result | response success info(true/false)
 data['amount'] | credit amount
-data['currency'] | credit currency('USD' fixed value)
+data['currency'] | credit currency(currently supported 'USD' and 'KRW')

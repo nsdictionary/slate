@@ -1,26 +1,30 @@
-## check_commission
+## check commission
 
-Inquire the send amount, receive amount, and the commission information.
+Inquire the receive amount, and the commission information.
 
 ### endpoint
-<code>GET: /inbound/check_commission</code>
+<code>POST: /inbound/check_commission</code>
 
 ### request
 Parameter | Requried | Description
 --------- | ------- | -----------
-transfer_amount |O| transfer amount
-send_amount_currency |O| send amount currency('USD' fixed value)
-receive_amount_currency |O| receive amount currency('KRW' fixed value)
-calc_by |O| S: Calculated by Sending Currency <br/> P: Calculated by Payout Currency
+transfer_info['send_amount'] |O| transfer amount
+transfer_info['send_amount_currency'] |O| send amount currency('KRW' fixed value)
+wallet_info['transfer_currency'] |O| wallet currency for transfer
+wallet_info['fee_currency'] |O| wallet currency for payment fee
 
 > request parameter JSON structured like this:
 
 ```json
 {
-  "transfer_amount": "100",
-  "calc_by": "S",
-  "send_amount_currency": "USD",
-  "receive_amount_currency": "KRW"
+  "transfer_info": {
+    "send_amount": "1000000",
+    "send_amount_currency": "KRW"
+  },
+  "wallet_info": {
+    "transfer_currency": "KRW",
+    "fee_currency": "USD"
+  }
 }
 ```
 
@@ -28,30 +32,38 @@ calc_by |O| S: Calculated by Sending Currency <br/> P: Calculated by Payout Curr
 Parameter | Description
 --------- | -----------
 result | response success info(true/false)
-send_amount | send amount
-send_amount_currency | send amount currency
-receive_amount | receive amount
-receive_amount_currency | receive amount currency
-commission | sentbe commission amount
-commission_currency | commission currency('KRW')
-total_amount | amount to be deducted from sentbe credit
-total_amount_currency | total amount currency('KRW')
+data['transfer_info']['receive_amount'] | receive amount
+data['transfer_info']['receive_amount_currency'] | receive amount currency
+data['billing_info']['amount'] | amount to be deducted from wallet
+data['billing_info']['currency'] | wallet currency
+data['billing_info']['desc'] | transfer / distribution cost
 
 > response JSON structured like this:
 
 ```json
 {
-  "send_amount": "100.0",
-  "send_amount_currency": "USD",
-  "receive_amount": "114271.0",
-  "receive_amount_currency": "KRW",
-  "commission": "2.5",
-  "commission_currency": "USD",
-  "total_amount": "102.5",
-  "total_amount_currency": "USD"
+  "result": true,
+  "data": {
+    "transfer_info": {
+      "receive_amount": 1000000.0,
+      "receive_amount_currency": "KRW"
+    },
+    "billing_info": [
+      {
+        "amount": 1000000.0,
+        "currency": "KRW",
+        "desc": "transfer"
+      },
+      {
+        "amount": 2.5,
+        "currency": "USD",
+        "desc": "distribution cost"
+      }
+    ]
+  }
 }
 ```
 
 <aside class="notice">
-transfer_amount must be in integer format
+transfer_amount['send_amount'] must be in integer format
 </aside>

@@ -72,7 +72,7 @@ If you use javascript, use the <code>CryptoJS v3.1.2</code>(https://code.google.
 If you have parameters to pass when calling api, you should encrypt the json string and put it in the header.
 You can encrypt the parameter information by referring to the encryption logic on the right using the secret_key that has been issued in advance with the json string.
 
-> request parameter json string 암복호화 로직
+> request parameter json string encryption logic
 
 ```ruby
 require 'openssl'

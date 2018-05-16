@@ -3,10 +3,21 @@
 View your payee information.
 
 ### endpoint
+<code>GET: /inbound/recipients</code><br/>
 <code>GET: /inbound/recipients/:id</code>
 
 ### request
-No params
+Parameter | Requried | Description
+--------- | ------- | -----------
+page |X| default: 1, offset: 5
+
+> request parameter JSON structured like this:
+
+```json
+{
+  "page": "2"
+}
+```
 
 ### response
 Parameter | Description

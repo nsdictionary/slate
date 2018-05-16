@@ -3,10 +3,21 @@
 View the sender information.
 
 ### endpoint
+<code>GET: /inbound/users</code><br/>
 <code>GET: /inbound/users/:id</code>
 
 ### request
-No params
+Parameter | Requried | Description
+--------- | ------- | -----------
+page |X| default: 1, offset: 5
+
+> request parameter JSON structured like this:
+
+```json
+{
+  "page": "2"
+}
+```
 
 ### response
 Parameter | Description

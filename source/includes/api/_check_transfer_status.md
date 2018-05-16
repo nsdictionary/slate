@@ -3,10 +3,21 @@
 View the remit process progress information.
 
 ### endpoint
+<code>GET: /inbound/transfers</code><br/>
 <code>GET: /inbound/transfers/:id</code>
 
 ### request
-No params
+Parameter | Requried | Description
+--------- | ------- | -----------
+page |X| default: 1, offset: 5
+
+> request parameter JSON structured like this:
+
+```json
+{
+  "page": "2"
+}
+```
 
 ### response
 Parameter | Description

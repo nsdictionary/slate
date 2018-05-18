@@ -7,17 +7,7 @@ View the Sentbe credit balance. (Prefunding)
 <code>GET: /inbound/balances/:currency</code>
 
 ### request
-Parameter | Requried | Description
---------- | ------- | -----------
-page |X| default: 1, offset: 5
-
-> request parameter JSON structured like this:
-
-```json
-{
-  "page": "2"
-}
-```
+No params
 
 ### response
 Parameter | Description

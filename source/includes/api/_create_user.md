@@ -27,7 +27,7 @@ email |X| sender's email
   "last_name": "ryu",
   "email": "sanghyun.ryu@sentbe.com",
   "nationality": "US",
-  "phone_number": "010-1234-1234",
+  "phone_number": "010-123-1234",
   "first_name": "sanghyun"
 }
 ```

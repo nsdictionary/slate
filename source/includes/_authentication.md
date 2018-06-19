@@ -97,7 +97,7 @@ def encrypt(key, value)
   aes.encrypt
   aes.key = key
   aes.iv = iv
-  crypt = aes.update(value) + aes.final()
+  crypt = aes.update(value.to_json) + aes.final()
   encrypted_data = (Base64.encode64(crypt)).strip
   data = {"ct" => encrypted_data, "iv" => bin2hex(iv), "s" => bin2hex(salt)}
 
@@ -133,7 +133,7 @@ def decrypt(key, jsonString, nonce=nil)
   decode_cipher.iv = iv
   data = decode_cipher.update(ct)
   data << decode_cipher.final()
-  data
+  data[1..-2].gsub('\\"', '"').gsub('\\n', '')
 end
 
 def bin2hex(s)

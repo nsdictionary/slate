@@ -98,7 +98,7 @@ def encrypt(key, value)
   aes.key = key
   aes.iv = iv
   crypt = aes.update(value.to_json) + aes.final()
-  encrypted_data = (Base64.encode64(crypt)).strip
+  encrypted_data = (Base64.strict_encode64(crypt)).strip
   data = {"ct" => encrypted_data, "iv" => bin2hex(iv), "s" => bin2hex(salt)}
 
   data.to_json

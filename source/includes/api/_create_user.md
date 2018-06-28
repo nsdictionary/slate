@@ -14,10 +14,10 @@ nationality |O| 국적 국가 코드 (ISO ALPHA-2 Code)
 phone_number |O| 휴대폰 번호
 phone_country_code |O| 휴대폰 번호 국가 코드 (ISO ALPHA-2 Code)
 birth_date |O| 생년월일 (YYYYMMDD)
-funds_source |O| <a href="#3-transfer-status">목록 조회 api</a>
-occupation |O| <a href="#3-transfer-status">목록 조회 api</a>
-often_send_country |O| <a href="#3-transfer-status">목록 조회 api</a>
-transfer_purpose |O| <a href="#3-transfer-status">목록 조회 api</a>
+funds_source |O| <a href="#get-list-data">목록 조회 api</a>
+occupation |O| <a href="#get-list-data">목록 조회 api</a>
+often_send_country |O| <a href="#get-list-data">목록 조회 api</a>
+transfer_purpose |O| <a href="#get-list-data">목록 조회 api</a>
 password |O| 유저가 사용할 비밀번호
 first_name |O| 이름
 middle_name |X| 가운데 이름
@@ -88,7 +88,7 @@ small_sum_foreign |O| 소액해외송금서비스 이용약관
 ### response
 Parameter | Description
 --------- | -----------
-result | response success info(true/false)
+result | 요청 정보에 대한 결과(true/false)
 data | response data
 data['verifications_status'] | 유저 인증 상태
 

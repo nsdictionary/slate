@@ -1,34 +1,87 @@
 ## create user
 
-Send the sender information to create the model.
+송금인 정보를 바탕으로 송금인 모델을 생성합니다.
 
 ### endpoint
-<code>POST: /inbound/users</code>
+<code>POST: /outbound/users</code>
 
 ### request
 
 Parameter | Requried | Description
 --------- | ------- | -----------
-phone_country_code |O| ISO ALPHA-2 Code
-phone_number |O| sender's phone number
-first_name |O| sender's first name
-middle_name |X| sender's middle name
-last_name |O| sender's last name
-nationality |O| ISO ALPHA-2 Code
-birth_date |O| sender's birth date
-email |X| sender's email
+external_id |O| 파트너사 유저 고유 ID
+nationality |O| 국적 국가 코드 (ISO ALPHA-2 Code)
+phone_number |O| 휴대폰 번호
+phone_country_code |O| 휴대폰 번호 국가 코드 (ISO ALPHA-2 Code)
+birth_date |O| 생년월일 (YYYYMMDD)
+funds_source |O| <a href="#3-transfer-status">목록 조회 api</a>
+occupation |O| <a href="#3-transfer-status">목록 조회 api</a>
+often_send_country |O| <a href="#3-transfer-status">목록 조회 api</a>
+transfer_purpose |O| <a href="#3-transfer-status">목록 조회 api</a>
+password |O| 유저가 사용할 비밀번호
+first_name |O| 이름
+middle_name |X| 가운데 이름
+last_name |O| 성
+identification_number |X| 주민등록번호
+passport |X| 여권번호
+email |O| 이메일
+gender |O| 성별 (M/F)
+address_attributes |O| 주소정보 hash (아래 sub parameter 참조)
+agreements_attributes |O| 동의정보 hash (아래 sub parameter 참조)
+
+### address_attributes
+Parameter | Requried | Description
+--------- | ------- | -----------
+region |O| 지역
+country |O| 국가 코드 (ISO ALPHA-2 Code)
+line_1 |O| 상세주소 1
+line_2 |X| 상세주소 2
+city |O| 도시
+postal_code |O| 우편번호
+
+### agreements_attributes
+Parameter | Requried | Description
+--------- | ------- | -----------
+unique_id_info |O| 고유식별정보 수집
+third_party_info |O| 개인정보의 제3자 제공
+electronic_financial_transactions |O| 전자금융거래이용약관
+privacy_info |O| 개인정보 처리방침
+small_sum_foreign |O| 소액해외송금서비스 이용약관
+
 
 > request parameter JSON structured like this:
 
 ```json
 {
-  "phone_country_code": "US",
-  "birth_date": "19890101",
-  "last_name": "ryu",
-  "email": "sanghyun.ryu@sentbe.com",
-  "nationality": "US",
-  "phone_number": "010-123-1234",
-  "first_name": "sanghyun"
+  "external_id": "3",
+  "nationality": "KR",
+  "phone_number": "010-3333-4445",
+  "birth_date": "19880101",
+  "funds_source": "business_earnings",
+  "occupation": "company_employee",
+  "often_send_country": "PH",
+  "phone_country_code": "KR",
+  "password": "1234qwer!@",
+  "first_name": "firsrt",
+  "transfer_purpose": "saving",
+  "identification_number": "88010112345677",
+  "last_name": "last",
+  "email": "test@outbound.com",
+  "gender": "M",
+  "address_attributes": {
+    "region": "seoul",
+    "country": "KR",
+    "line_1": "gangnamgu 111",
+    "city": "seoul",
+    "postal_code": "12345"
+  },
+  "agreements_attributes": {
+    "unique_id_info": "true",
+    "third_party_info": "true",
+    "electronic_financial_transactions": "true",
+    "privacy_info": "true",
+    "small_sum_foreign": "true"
+  }
 }
 ```
 
@@ -36,13 +89,27 @@ email |X| sender's email
 Parameter | Description
 --------- | -----------
 result | response success info(true/false)
-data['id'] | user's unique id
-data['first_name'] | user's first name
-data['last_name'] | user's last name
-data['email'] | user's email
-data['created_at'] | user created time
-data['phone_country_code'] | phone country code
-data['phone_number'] | user's phone number
+data | response data
+data['verifications_status'] | 유저 인증 상태
+
+### data
+Parameter | Description
+--------- | -----------
+id | 센트비 유저 고유 ID
+first_name | 이름
+last_name | 성
+email | 이메일
+created_at | 유저 생성 일시
+phone_number | 휴대폰 번호
+phone_country_code | 휴대폰 국가 코드
+external_id | 파트너사 유저 고유 ID
+
+### data['verifications_status']
+Parameter | Description
+--------- | -----------
+mobile | standby / completed
+documents | standby / processing / rejected / pending / completed
+bank | standby / processing / rejected / pending / completed
 
 > response JSON structured like this:
 
@@ -50,18 +117,28 @@ data['phone_number'] | user's phone number
 {
   "result": true,
   "data": {
-    "id": 47,
-    "first_name": "sanghyun",
-    "last_name": "ryu",
-    "email": "sanghyun.ryu@sentbe.com",
-    "created_at": "2017-12-12T15:30:30.000+09:00",
-    "phone_country_code": "US",
-    "phone_number": "010-1234-1234"
+    "id": 15,
+    "first_name": "firsrt",
+    "last_name": "last",
+    "email": "test@outbound.com",
+    "created_at": "2018-06-14T10:29:20.000+09:00",
+    "phone_country_code": "KR",
+    "phone_number": "010-3333-4442",
+    "external_id": "3",
+    "verifications_status": {
+      "mobile": "completed",
+      "documents": "standby",
+      "bank": "standby"
+    }
   }
 }
 ```
 
 
 <aside class="warning">
-The <code>data ['id']</code> of the response must be stored in the database before you can modify or invoke the information.
+response의 <code>data['id']</code>는 다른 request에 사용되기 때문에 파트너사의 데이터베이스에 저장해야합니다.
+</aside>
+
+<aside class="notice">
+request할때 <code>identification_number</code> <code>passport</code> 둘중 하나는 필수로 보내야 합니다
 </aside>

@@ -22,7 +22,7 @@ password |O| 유저가 사용할 비밀번호
 first_name |O| 이름
 middle_name |X| 가운데 이름
 last_name |O| 성
-identification_number |X| 주민등록번호
+identification_number |X| 주민식별번호
 passport |X| 여권번호
 email |O| 이메일
 gender |O| 성별 (M/F)
@@ -89,7 +89,7 @@ small_sum_foreign |O| 소액해외송금서비스 이용약관
 Parameter | Description
 --------- | -----------
 result | 요청 정보에 대한 결과(true/false)
-data | response data
+data | 유저정보 Hash
 data['verifications_status'] | 유저 인증 상태
 
 ### data

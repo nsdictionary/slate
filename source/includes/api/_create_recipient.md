@@ -1,63 +1,60 @@
 ## create recipient
 
-Send your payee information to create a model.
+수취인 정보를 바탕으로 수취인 모델을 생성합니다.
 
 ### endpoint
-<code>POST: /inbound/recipients</code>
+<code>POST: /outbound/recipients</code>
 
 ### request
-
-Parameter | Requried | Description
---------- | ------- | -----------
-phone_country_code |O| ISO ALPHA-2 Code
-phone_number |O| recipient's phone number
-first_name |O| recipient's first name
-middle_name |X| recipient's middle name
-last_name |O| recipient's last name
-country |O| ISO ALPHA-2 Code
-birth_date |O| recipient's birth date
-user_id |O| 'user_id' on create_user response
-email |X| recipient's email
-bank_attributes['name'] |O| recipient's bank code<br/><a href="#bank_info">See bank_info request</a>
-bank_attributes['account_number'] |O| recipient's account number
-bank_attributes['account_holder_name'] |O| recipient's account holder name
-bank_attributes['branch'] |X| recipient's bank branch
+<a href="#recipient-params">recipient_params api</a>를 통해 파라미터 정보 조회
 
 > request parameter JSON structured like this:
 
 ```json
 {
-  "bank_attributes": {
-    "name": "002",
-    "account_number": "12341234",
-    "account_holder_name": "gildong hong"
-  },
-  "country": "KR",
+  "user_id": "15",
+  "first_name": "firsrt",
+  "last_name": "last",
+  "country": "PH",
+  "receive_method": "bank",
+  "external_id": "2",
+  "phone_number": "010-3333-4442",
   "phone_country_code": "KR",
-  "birth_date": "19901201",
-  "first_name": "gildong",
-  "last_name": "hong",
-  "email": "hong@sentbe.com",
-  "user_id": "47",
-  "phone_number": "010-5678-5678"
+  "address_attributes": {
+    "region": "seoul",
+    "city": "seoul",
+    "country": "KR"
+  },
+  "bank_attributes": {
+    "account_type": "Savings",
+    "branch": "123",
+    "account_number": "1234567890123456",
+    "account_holder_name": "홍길동테스트",
+    "name": "10305"
+  }
 }
 ```
 
 ### response
 Parameter | Description
 --------- | -----------
-result | response success info(true/false)
-data['id'] | recipient's unique id
-data['first_name'] | recipient's first name
-data['last_name'] | recipient's last name
-data['email'] | recipient's email
-data['created_at'] | recipient created time
-data['phone_country_code'] | phone country code
-data['phone_number'] | recipient's phone number
-data['bank_attributes']['name'] | recipient's bank code
-data['bank_attributes']['account_number'] | recipient's account number
-data['bank_attributes']['account_holder_name'] | recipient's account holder name
-data['bank_attributes']['branch'] | recipient's bank branch
+result | 요청 정보에 대한 결과(true/false)
+data | 수취인 정보 Hash
+data['receive_method_info'] | 생성된 수취방법에 대한 정보
+
+### data
+Parameter | Description
+--------- | -----------
+id | 센트비 수취인 고유 ID
+first_name | 이름
+last_name | 성
+email | 이메일
+created_at | 수취인 생성 일시
+phone_number | 휴대폰 번호
+phone_country_code | 휴대폰 번호 국가 코드 (ISO ALPHA-2 Code)
+birth_date | 수취인 생년월일
+receive_method | 수취방법 (Bank / Pickup / DebitCard / HomeDelivery)
+
 
 > response JSON structured like this:
 
@@ -65,23 +62,25 @@ data['bank_attributes']['branch'] | recipient's bank branch
 {
   "result": true,
   "data": {
-    "id": 10,
-    "email": "hong@sentbe.com",
-    "created_at": "2017-12-12T15:30:39.000+09:00",
+    "id": 53,
+    "first_name": "firsrt",
+    "last_name": "last",
+    "email": null,
+    "created_at": "2018-06-19T13:45:33.000+09:00",
     "phone_country_code": "KR",
-    "phone_number": "010-5678-5678",
-    "birth_date": "19901201",
-    "bank_attributes": {
-      "name": "002",
-      "account_number": "12341234",
-      "account_holder_name": "gildong hong",
-      "branch": null
+    "phone_number": "010-3333-4442",
+    "birth_date": null,
+    "receive_method": "Bank",
+    "receive_method_info": {
+      "name": "10305",
+      "account_number": "1234567890123456",
+      "account_holder_name": "홍길동테스트",
+      "branch": "123"
     }
   }
 }
 ```
 
-
 <aside class="warning">
-The <code>data ['id']</code> of the response must be stored in the database before you can modify or invoke the information.
+response의 <code>data['id']</code>는 다른 request에 사용되기 때문에 파트너사의 데이터베이스에 저장해야합니다.
 </aside>

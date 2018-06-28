@@ -13,6 +13,7 @@ includes:
   - authentication
   - api/intro
   - api/create_user
+  - api/recipient_params
   - api/create_recipient
   - api/user_info
   - api/recipient_info

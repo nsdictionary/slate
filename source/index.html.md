@@ -36,31 +36,11 @@ The API enables our partners to send transfers to anyone in Korea securely and c
 
 
 # Getting Started
-Here's how it works
+아래 이미지와 같은 절차를 통해 송금이 진행됩니다.
 ![Image](./images/api_graph.svg)
 
-Follow the given steps to start distribution with Sentbe:
+3가지 단계를 통해 센트비 API를 사용하실 수 있습니다:
 
-1. Contact us at <a href="mailto:contact@sentbe.com">inbound@sentbe.com</a> and register as a partner of Sentbe
-2. Deposit funds to your account to initiate FX conversion and payouts
-3. Send us systematically generated requests via API on who to send the funds.
-4. Track your requests via API.
-
-## 1. Sender prefunds in USD
-Sentbe can only accept USD prefunds due to series of compliance issues. That's why we are trying to give best exchange rate for KRW/USD in this market. 
-
-As soon as prefunds arrived at settlement bank account shall be credited to USD wallet. 
-Per each payout made, we shall convert credit from partner's USD wallet to KRW (Local Currency) using Sentbe exchange rate given at real-time.
-
-Please feel free to contact us at <a href="mailto:contact@sentbe.com">inbound@sentbe.com</a> for further inquiries on prefunding.
-
-## 2. Sender generates distribution requests
-Sender generates a create_transfer API call to initiate a transfer to the recipient. As of now, local bank account is the only option available for fund transfer in Korea.
-Once you've made the create_transfer API call, Sentbe will instantly send verification request to recipient.
-(In case the recipient has already completed verfication, verification process will be skipped.)
-
-As soon as recipient completes verification, Sentbe processes payout to recipient taking less than a minute to arrive.
-
-## 3. Real-time update on payout progress
-Partners may track payout progress real-time via API updates. We have 7-stage status updates for partners.
-
+1. Contact email(<a href="mailto:contact@sentbe.com">outbound@sentbe.com</a>) 을 통해 센트비의 파트너사로 등록합니다.
+2. 등록후 접속 정보를 받아서 API호출에 필요한 개발을 진행할 수 있습니다.
+3. API를 통해 거래를 생성하고 Traking 합니다.

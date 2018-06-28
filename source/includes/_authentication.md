@@ -1,76 +1,20 @@
 # Authentication
 
-## 1. Get partner access information
-You need three pieces of information sent from Sentbe in advance in the certification process.
+## 1. 파트너 인증정보
+파트너는 인증 과정에서 등록시 Sentbe가 보낸 세 가지 정보가 필요합니다.
 
 - <code>partner_id</code>
 - <code>access_id</code>
 - <code>secret_key</code>
 
 <aside class="warning">
-The <code>access_id</code> and <code>secret_key</code> are secret information. Do not expose it outside or store it in a location that is not secure.
+<code>access_id</code> 및 <code>secret_key</code>는 비밀 정보입니다. 외부에 노출 시키거나 안전하지 않은 장소에 보관하지 마십시오.
 </aside>
 
 
-## 2. Encryption authorization key
-Make <code>partner_id</code> and <code>access_id</code> a string such as <code>"partner_id:access_id"</code> and encryption sha256 using secret_key.
+## 2. request body 암호화
+API를 호출 할 때 전달할 매개 변수가 있다면 json 문자열을 암호화하여 헤더에 넣어야합니다. json 문자열과 함께 미리 발행 된 secret_key를 사용하여 오른쪽의 암호화 로직을 참조하여 매개 변수 정보를 암호화 할 수 있습니다.
 
-> authentication key generation code
-
-```ruby
-require 'openssl'
-require 'base64'
-
-partner_id = '1'
-access_id = 'test_id'
-secret_key = 'test_pw'
-
-data = "#{partner_id}:#{access_id}"
-digest  = OpenSSL::Digest.new('sha256')
-auth_key = Base64.encode64(OpenSSL::HMAC.digest(digest, secret_key, data)).strip
-p auth_key 
-```
-
-```php
-<?php
-$partner_id = '1';
-$access_id = 'test_id';
-$secret_key = 'test_pw';
-
-$data = $partner_id . ':' . $access_id;
-$auth_key = base64_encode(hash_hmac('sha256', $data, $secret_key, true));
-echo $auth_key;
-```
-
-```javascript
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/hmac-sha256.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64-min.js"></script>
-
-<script>
-	var partner_id = '1',
-    access_id = 'test_id',
-    secret_key = 'test_pw';
-
-	var data = partner_id + ':' + access_id;
-	var hash = CryptoJS.HmacSHA256(data, secret_key);
-	var auth_key = CryptoJS.enc.Base64.stringify(hash);
-
-	console.log(auth_key);
-</script>
-```
-
-<aside class="notice">
-The <code>partner_id</code>, <code>access_id</code>, and <code>secret_key</code> must use pre-assigned values.
-</aside>
-
-<aside class="notice">
-If you use javascript, use the <code>CryptoJS v3.1.2</code>(https://code.google.com/archive/p/crypto-js/) library.
-</aside>
-
-
-## 3. Encryption request body
-If you have parameters to pass when calling api, you should encrypt the json string and put it in the header.
-You can encrypt the parameter information by referring to the encryption logic on the right using the secret_key that has been issued in advance with the json string.
 
 > request parameter json string encryption logic
 
@@ -304,23 +248,27 @@ console.log(dec);
 ```
 
 <aside class="notice">
-Test version information: ruby <code>2.3.1</code>, php <code>7.1.7</code>
+테스트 버전 정보: ruby <code>2.3.1</code>, php <code>7.1.7</code>
 </aside>
 
 <aside class="notice">
-The encryption decryption logic is based on the open source <code> cryptojs-aes-php </code> (https://github.com/brainfoolong/cryptojs-aes-php).
+javascript를 사용하신다면 암호화할때 <code>CryptoJS v3.1.2</code>(https://code.google.com/archive/p/crypto-js/) 라이브러리를 사용해야 합니다.
+</aside>
+
+<aside class="notice">
+암복호화 로직은 오픈소스인<code> cryptojs-aes-php </code> (https://github.com/brainfoolong/cryptojs-aes-php)를 베이스로 수정해서 사용했습니다.
 </aside>
 
 
-## 4. Set request header
+## 3. request header 설정
 
 - <code>Content-Type</code> : "application/json; charset=utf-8"
-- <code>PARTNER-ID</code> : The partner ID
-- <code>KEY</code> : Authentication key encrypted in <a href="#2-encryption-authorization-key">step 2</a>
-- <code>SIGNATURE</code> : If there is a request parameter to be transmitted, the value encrypted in <a href="#3-encryption-request-body">step 3</a>
+- <code>PARTNER-ID</code> : 발급받은 파트너 고유 ID
+- <code>KEY</code> : 발급받은 파트너 access_id
+- <code>SIGNATURE</code> : 전송할 요청 매개 변수가 있으면 <a href="#2-request-body">step 2</a>에서 암호화 된 값
 
 <aside class="notice">
-You can omit <code>SIGNATURE</code> for endpoints that do not need to send parameters.
+매개 변수를 전송할 필요가없는 엔드 포인트에 대해서는 <code>SIGNATURE</code>를 생략 할 수 있습니다.
 </aside>
 
 > request header value structure
@@ -329,7 +277,7 @@ You can omit <code>SIGNATURE</code> for endpoints that do not need to send param
 {
   "Content-Type" : "application/json; charset=utf-8",
   "PARTNER-ID" : "your partner id here",
-  "KEY" : "encrypted authorization key here",
+  "KEY" : "your access_id here",
   "SIGNATURE" : "encrypted request parameter here"
 }
 ```

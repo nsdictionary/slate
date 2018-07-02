@@ -1,3 +1,5 @@
+# API Reference(user)
+
 ## create user
 
 송금인 정보를 바탕으로 송금인 모델을 생성합니다.
@@ -94,4 +96,8 @@ response의 <code>data['id']</code>는 다른 request에 사용되기 때문에 
 
 <aside class="notice">
 request할때 <code>identification_number</code> <code>passport</code> 둘중 하나는 필수로 보내야 합니다
+</aside>
+
+<aside class="notice">
+유저를 생성할 경우 자동으로 휴대폰으로 인증번호가 발송됩니다.
 </aside>

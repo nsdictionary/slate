@@ -3,13 +3,14 @@
 송금인 정보를 조회합니다.
 
 ### endpoint
-<code>GET: /inbound/users</code><br/>
-<code>GET: /inbound/users/:id</code>
+<code>GET: /outbound/users</code><br/>
+<code>GET: /outbound/users/:id</code>
 
 ### request
 Parameter | Requried | Description
 --------- | ------- | -----------
 page |X| default: 1, offset: 5
+id |X| 센트비 유저 고유 id
 
 > request parameter JSON structured like this:
 
@@ -28,14 +29,14 @@ result | 요청 정보에 대한 결과(true/false)
 ### data
 Parameter | Description
 --------- | -----------
-id | 센트비 유저 고유 ID
+id | 센트비 유저 고유 id
 first_name | 이름
 last_name | 성
 email | 이메일
 created_at | 유저 생성 일시
 phone_number | 휴대폰 번호
 phone_country_code | 휴대폰 국가 코드
-external_id | 파트너사 유저 고유 ID
+external_id | 파트너사 유저 고유 id
 
 ### data['verifications_status']
 Parameter | Description

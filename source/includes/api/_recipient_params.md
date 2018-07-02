@@ -53,16 +53,16 @@ postal_code | 우편번호
 ### bank_attributes
 Parameter | Requried | Description
 --------- | ------- | -----------
-name | <a href="#">코드 목록 조회 api</a>
+name | <a href="#remittance-code-info">코드 목록 조회 api</a>
 account_number | 계좌번호
 account_holder_name | 계좌주명
 account_type | 계좌 유형 (savings / current)
-branch | <a href="#"> 코드 목록 조회 api</a>
+branch | <a href="#remittance-code-info"> 코드 목록 조회 api</a>
 
 ### debit_card_attributes
 Parameter | Requried | Description
 --------- | ------- | -----------
-name | <a href="#">코드 목록 조회 api</a>
+name | <a href="#remittance-code-info">코드 목록 조회 api</a>
 card_number | 카드번호
 card_holder_name | 카드 소유자 성명
 

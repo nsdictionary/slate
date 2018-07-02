@@ -11,15 +11,21 @@ toc_footers:
 
 includes:
   - authentication
-  - api/intro
+  # - api/intro
   - api/create_user
   - api/user_info
+  - api/register_user
+  - api/verifications/create_bank_verification
+  - api/verifications/create_document_verification
+  - api/verifications/create_mobile_verification
+  - api/verifications/verify_mobile
+  - api/verifications/verify_bank
+  - api/remittance_codes
   - api/recipient_params
   - api/create_recipient
   - api/recipient_info
   #  - api/update_user_info
   #  - api/update_recipient_info
-  - api/bank_info
   - api/balance_info
   - api/check_commission
   - api/create_transfer

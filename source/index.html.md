@@ -13,9 +13,9 @@ includes:
   - authentication
   - api/intro
   - api/create_user
+  - api/user_info
   - api/recipient_params
   - api/create_recipient
-  - api/user_info
   - api/recipient_info
   #  - api/update_user_info
   #  - api/update_recipient_info

@@ -86,54 +86,7 @@ small_sum_foreign |O| 소액해외송금서비스 이용약관
 ```
 
 ### response
-Parameter | Description
---------- | -----------
-result | 요청 정보에 대한 결과(true/false)
-**data** | **유저정보 Hash**
-**data\['verifications_status'\]** | **유저 인증 상태**
-
-### data
-Parameter | Description
---------- | -----------
-id | 센트비 유저 고유 ID
-first_name | 이름
-last_name | 성
-email | 이메일
-created_at | 유저 생성 일시
-phone_number | 휴대폰 번호
-phone_country_code | 휴대폰 국가 코드
-external_id | 파트너사 유저 고유 ID
-
-### data['verifications_status']
-Parameter | Description
---------- | -----------
-mobile | standby / completed
-documents | standby / processing / rejected / pending / completed
-bank | standby / processing / rejected / pending / completed
-
-> response JSON structured like this:
-
-```json
-{
-  "result": true,
-  "data": {
-    "id": 15,
-    "first_name": "firsrt",
-    "last_name": "last",
-    "email": "test@outbound.com",
-    "created_at": "2018-06-14T10:29:20.000+09:00",
-    "phone_country_code": "KR",
-    "phone_number": "010-3333-4442",
-    "external_id": "3",
-    "verifications_status": {
-      "mobile": "completed",
-      "documents": "standby",
-      "bank": "standby"
-    }
-  }
-}
-```
-
+<a href="#user-info">송금인 정보 조회</a>의 response와 동일
 
 <aside class="warning">
 response의 <code>data['id']</code>는 다른 request에 사용되기 때문에 파트너사의 데이터베이스에 저장해야합니다.

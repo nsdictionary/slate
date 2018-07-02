@@ -37,6 +37,13 @@ phone_number | 휴대폰 번호
 phone_country_code | 휴대폰 국가 코드
 external_id | 파트너사 유저 고유 ID
 
+### data['verifications_status']
+Parameter | Description
+--------- | -----------
+mobile | standby / completed
+documents | standby / processing / rejected / pending / completed
+bank | standby / processing / rejected / pending / completed
+
 > response JSON structured like this:
 
 ```json

@@ -1,6 +1,6 @@
 ## user info
 
-View the sender information.
+송금인 정보를 조회합니다.
 
 ### endpoint
 <code>GET: /inbound/users</code><br/>
@@ -22,14 +22,20 @@ page |X| default: 1, offset: 5
 ### response
 Parameter | Description
 --------- | -----------
-result | response success info(true/false)
-data['id'] | user's unique id
-data['first_name'] | user's first name
-data['last_name'] | user's last name
-data['email'] | user's email
-data['created_at'] | user created time
-data['phone_country_code'] | phone country code
-data['phone_number'] | user's phone number
+result | 요청 정보에 대한 결과(true/false)
+**data** | **유저정보 Hash**
+
+### data
+Parameter | Description
+--------- | -----------
+id | 센트비 유저 고유 ID
+first_name | 이름
+last_name | 성
+email | 이메일
+created_at | 유저 생성 일시
+phone_number | 휴대폰 번호
+phone_country_code | 휴대폰 국가 코드
+external_id | 파트너사 유저 고유 ID
 
 > response JSON structured like this:
 
@@ -37,13 +43,19 @@ data['phone_number'] | user's phone number
 {
   "result": true,
   "data": {
-    "id": 47,
-    "first_name": "sanghyun",
-    "last_name": "ryu",
-    "email": "sanghyun.ryu@sentbe.com",
-    "created_at": "2017-12-12T15:30:30.000+09:00",
-    "phone_country_code": "US",
-    "phone_number": "010-1234-1234"
+    "id": 15,
+    "first_name": "firsrt",
+    "last_name": "last",
+    "email": "test@outbound.com",
+    "created_at": "2018-06-14T10:29:20.000+09:00",
+    "phone_country_code": "KR",
+    "phone_number": "010-3333-4442",
+    "external_id": "3",
+    "verifications_status": {
+      "mobile": "completed",
+      "documents": "standby",
+      "bank": "standby"
+    }
   }
 }
 ```

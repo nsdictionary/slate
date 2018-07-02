@@ -26,8 +26,8 @@ identification_number |X| 주민식별번호
 passport |X| 여권번호
 email |O| 이메일
 gender |O| 성별 (M/F)
-address_attributes |O| 주소정보 hash (아래 sub parameter 참조)
-agreements_attributes |O| 동의정보 hash (아래 sub parameter 참조)
+**address_attributes** |O| **주소정보 hash (아래 sub parameter 참조)**
+**agreements_attributes** |O| **동의정보 hash (아래 sub parameter 참조)**
 
 ### address_attributes
 Parameter | Requried | Description
@@ -89,8 +89,8 @@ small_sum_foreign |O| 소액해외송금서비스 이용약관
 Parameter | Description
 --------- | -----------
 result | 요청 정보에 대한 결과(true/false)
-data | 유저정보 Hash
-data['verifications_status'] | 유저 인증 상태
+**data** | **유저정보 Hash**
+**data\['verifications_status'\]** | **유저 인증 상태**
 
 ### data
 Parameter | Description

@@ -39,8 +39,8 @@
 Parameter | Description
 --------- | -----------
 result | 요청 정보에 대한 결과(true/false)
-data | 수취인 정보 Hash
-data['receive_method_info'] | 생성된 수취방법에 대한 정보
+**data** | **수취인 정보 Hash**
+**data\['receive_method_info'\]** | **생성된 수취방법에 대한 정보**
 
 ### data
 Parameter | Description

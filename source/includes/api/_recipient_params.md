@@ -20,7 +20,7 @@ receive_method |X| 수취방법 (Bank / Pickup / DebitCard / HomeDelivery)
 Parameter | Description
 --------- | -----------
 result | 요청 정보에 대한 결과(true/false)
-data | 파라미터 정보
+**data** | **파라미터 정보**
 
 ### data
 Parameter | Description
@@ -35,9 +35,9 @@ external_id| 파트너사 수취인 고유 ID
 phone_country_code | 휴대폰 번호
 phone_number | 휴대폰 번호 국가 코드 (ISO ALPHA-2 Code)
 identification_number | 수취인 주민식별번호
-address_attributes | 주소 정보 params
-bank_attributes | 은행 계좌 정보 params
-debit_card_attributes | 신용카드 정보 params
+**address_attributes** | **주소 정보 params**
+**bank_attributes** | **은행 계좌 정보 params**
+**debit_card_attributes** | **신용카드 정보 params**
 
 
 ### address_attributes

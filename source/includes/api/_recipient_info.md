@@ -1,6 +1,7 @@
 ## recipient info
 
 View your payee information.
+수취인 정보를 조회합니다.
 
 ### endpoint
 <code>GET: /inbound/recipients</code><br/>

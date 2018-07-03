@@ -6,6 +6,7 @@
 
 ### endpoint
 <code>GET: /inbound/remittance_codes/:method</code>
+
 <code>GET: /inbound/remittance_codes/:method/:country</code>
 
 ### request

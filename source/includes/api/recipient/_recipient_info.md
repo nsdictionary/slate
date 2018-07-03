@@ -4,13 +4,15 @@
 
 ### endpoint
 <code>GET: /outbound/recipients</code><br/>
-<code>GET: /outbound/recipients/:id</code>
+<code>GET: /outbound/recipients/:recipient_id</code><br/>
+<code>GET: /outbound/recipients/user/:user_id</code>
 
 ### request
 Parameter | Requried | Description
 --------- | ------- | -----------
 page |X| default: 1, offset: 5
-id |X| 센트비 수취인 고유 id
+recipient_id |X| 센트비 수취인 고유 id
+user_id |X| 센트비 유저 고유 id
 
 > request parameter JSON structured like this:
 

@@ -2,43 +2,49 @@
 
 ## check commission
 
-Inquire the receive amount, and the commission information.
+송금금액으로 수취금액(KRW) 및 수수료를 조회 합니다.
 
 ### endpoint
-<code>POST: /inbound/check_commission</code>
+<code>POST: /outbound/check_commission</code>
 
 ### request
 Parameter | Requried | Description
 --------- | ------- | -----------
-transfer_info['send_amount'] |O| transfer amount
-transfer_info['send_amount_currency'] |O| send amount currency('KRW' fixed value)
-wallet_info['transfer_currency'] |O| wallet currency for transfer
-wallet_info['fee_currency'] |O| wallet currency for payment fee
+user_id |O| 센트비 유저 고유 id
+recipient_id |O| 센트비 수취인 고유 id
+recieve_amount |O| 수취금액
+recieve_amount_currency |O| 수취통화 (KRW 제외)
 
 > request parameter JSON structured like this:
 
 ```json
 {
-  "transfer_info": {
-    "send_amount": "1000000",
-    "send_amount_currency": "KRW"
-  },
-  "wallet_info": {
-    "transfer_currency": "KRW",
-    "fee_currency": "USD"
-  }
+  "user_id": "15",
+  "recipient_id": "53",
+  "recieve_amount": "5000",
+  "recieve_amount_currency": "PHP"
 }
 ```
+
 
 ### response
 Parameter | Description
 --------- | -----------
-result | response success info(true/false)
-data['transfer_info']['receive_amount'] | receive amount
-data['transfer_info']['receive_amount_currency'] | receive amount currency
-data['billing_info']['amount'] | amount to be deducted from wallet
-data['billing_info']['currency'] | wallet currency
-data['billing_info']['desc'] | transfer / distribution cost
+result | 요청 정보에 대한 결과(true/false)
+**data** | **수취금액 정보 hash**
+
+### data
+Parameter | Description
+--------- | -----------
+send_amount | 송금금액
+send_amount_currency | 송금금액 통화 (KRW 고정)
+receive_amount | 수취금액
+receive_amount_currency | 수취금액 통화
+commission | 수수료
+commission_currency | 수수료 통화 (KRW 고정)
+credit_usage_amount | 유저 크레딧 사용 내역
+total_commission | 수수료 합계
+exchange_rate_list_id | 환율값 고유 id
 
 > response JSON structured like this:
 
@@ -46,26 +52,19 @@ data['billing_info']['desc'] | transfer / distribution cost
 {
   "result": true,
   "data": {
-    "transfer_info": {
-      "receive_amount": 1000000.0,
-      "receive_amount_currency": "KRW"
-    },
-    "billing_info": [
-      {
-        "amount": 1000000.0,
-        "currency": "KRW",
-        "desc": "transfer"
-      },
-      {
-        "amount": 2.5,
-        "currency": "USD",
-        "desc": "distribution cost"
-      }
-    ]
+    "send_amount": 119090,
+    "send_amount_currency": "KRW",
+    "receive_amount": 5000.0,
+    "receive_amount_currency": "PHP",
+    "commission": 5000,
+    "commission_currency": "KRW",
+    "credit_usage_amount": 0,
+    "total_commission": 5000,
+    "exchange_rate_list_id": 1
   }
 }
 ```
 
 <aside class="notice">
-transfer_amount['send_amount'] must be in integer format
+reqeust 파리미터중 recieve_amount 는 integer포맷 으로 세팅해야 합니다.
 </aside>

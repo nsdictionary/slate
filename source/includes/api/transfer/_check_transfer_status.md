@@ -1,15 +1,18 @@
 ## check transfer status
 
-View the remit process progress information.
+신청한 거래의 정보를 조회할 수 있습니다.
 
 ### endpoint
-<code>GET: /inbound/transfers</code><br/>
-<code>GET: /inbound/transfers/:id</code>
+<code>GET: /outbound/transfers</code><br/>
+<code>GET: /outbound/transfers/:transfer_id</code>
+<code>GET: /outbound/transfers/user/:user_id</code>
 
 ### request
 Parameter | Requried | Description
 --------- | ------- | -----------
 page |X| default: 1, offset: 5
+transfer_id |X| 센트비 거래정보 고유 id
+user_id |X| 센트비 유저 고유 id
 
 > request parameter JSON structured like this:
 
@@ -22,18 +25,25 @@ page |X| default: 1, offset: 5
 ### response
 Parameter | Description
 --------- | -----------
-result | response success info(true/false)
-data['transfer_info']['user_id'] | user's unique id
-data['transfer_info']['recipient_id'] | recipient's unique id
-data['transfer_info']['transfer_id'] | transfer's unique id
-data['transfer_info']['sender_country'] | user's nationality
-data['transfer_info']['receive_amount'] | receive amount
-data['transfer_info']['receive_amount_currency'] | receive amount currency
-data['transfer_info']['status'] | Waiting verification<br/> Processing<br/> AML filtered<br/> Complete<br/> Canceled<br/> Expired<br/> Refunded<br/><a href="#3-transfer-status">See transfer status</a>
-data['transfer_info']['created_at'] | transfer created time
-data['billing_info']['amount'] | amount to be deducted from wallet
-data['billing_info']['currency'] | wallet currency
-data['billing_info']['desc'] | transfer / distribution cost
+result | 요청 정보에 대한 결과(true/false)
+**data** | **거래 정보 hash**
+
+### data
+Parameter | Description
+--------- | -----------
+transfer_id | 센트비 거래 고유 id
+user_id | 센트비 유저 고유 id
+recipient_id | 수취인 고유 id
+sender_country | 수취인 국적 국가코드 (ISO ALPHA-2 Code)
+send_amount | 송금 금액 (가상계좌로 입금할 최종 금액)
+send_amount_currency | 송금 통화 (KRW 고정)
+receive_amount | 수취 금액
+receive_amount_currency | 수취 통화
+commission | 수수료
+commission_currency | 수수료 통화 (KRW 고정)
+status | **Transfer Requested**(입금대기중)<br/> **Processing**(송금 진행중)<br/> **AML filtered**(AML 필터링 대상)<br/> **Complete**(송금 완료)<br/> **Canceled**(취소됨)<br/> **Expired**(만료됨)<br/> **Refunded**(환불됨)
+virtual_account | 입금 가상 계좌 정보
+created_at | 거래 생성 일시
 
 > response JSON structured like this:
 
@@ -41,28 +51,19 @@ data['billing_info']['desc'] | transfer / distribution cost
 {
   "result": true,
   "data": {
-    "transfer_info": {
-      "user_id": 47,
-      "recipient_id": 10,
-      "transfer_id": 23,
-      "sender_country": "KR",
-      "receive_amount": 1000000.0,
-      "receive_amount_currency": "KRW",
-      "status": "Processing",
-      "created_at": "2018-05-14T13:23:09.000+09:00"
-    },
-    "billing_info": [
-      {
-        "amount": 1000000.0,
-        "currency": "KRW",
-        "desc": "transfer"
-      },
-      {
-        "amount": 2.5,
-        "currency": "USD",
-        "desc": "distribution cost"
-      }
-    ]
+    "transfer_id": 49,
+    "user_id": 15,
+    "recipient_id": 53,
+    "sender_country": "KR",
+    "send_amount": 96630.0,
+    "send_amount_currency": "KRW",
+    "receive_amount": 4000.0,
+    "receive_amount_currency": "PHP",
+    "commission": 5000.0,
+    "commission_currency": "KRW",
+    "status": "Transfer Requested",
+    "virtual_account": "상호저축은행(Bank code 50) | 066-40-15-072113-4 | (주)센트비",
+    "created_at": "2018-06-22T14:13:05.000+09:00"
   }
 }
 ```

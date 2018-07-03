@@ -10,8 +10,8 @@ Parameter | Requried | Description
 --------- | ------- | -----------
 user_id |O| 센트비 유저 고유 id
 recipient_id |O| 센트비 수취인 고유 id
-recieve_amount |O| 수취금액
-recieve_amount_currency |O| 수취통화 (KRW 제외)
+recieve_amount |O| 수취 금액
+recieve_amount_currency |O| 수취 통화 (KRW 제외)
 exchange_rate_list_id |O| <a href="#check-commission">check_commssion</a>에서 받은 환율값 고유 id
 external_id |O| 파트너사 거래정보 고유 id
 

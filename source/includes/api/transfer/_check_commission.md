@@ -36,7 +36,7 @@ result | 요청 정보에 대한 결과(true/false)
 ### data
 Parameter | Description
 --------- | -----------
-send_amount | 송금금액
+send_amount | 송금금액 (가상계좌로 입금할 최종 금액)
 send_amount_currency | 송금금액 통화 (KRW 고정)
 receive_amount | 수취금액
 receive_amount_currency | 수취금액 통화

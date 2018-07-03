@@ -14,6 +14,7 @@ includes:
   - api/user/create_user
   - api/user/user_info
   - api/user/register_user
+  - api/user/get_list_data
   - api/verifications/create_bank_verification
   - api/verifications/create_document_verification
   - api/verifications/create_mobile_verification
@@ -26,7 +27,7 @@ includes:
   - api/transfer/check_commission
   - api/transfer/create_transfer
   - api/transfer/check_transfer_status
-  - api/get_list_data
+  - api/transfer/cancel_transfer
 #   - callback
   - errors
   - update_log

@@ -12,63 +12,7 @@ The <code>access_id</code> and <code>secret_key</code> are secret information. D
 </aside>
 
 
-## 2. Encryption authorization key
-Make <code>partner_id</code> and <code>access_id</code> a string such as <code>"partner_id:access_id"</code> and encryption sha256 using secret_key.
-
-> authentication key generation code
-
-```ruby
-require 'openssl'
-require 'base64'
-
-partner_id = '1'
-access_id = 'test_id'
-secret_key = 'test_pw'
-
-data = "#{partner_id}:#{access_id}"
-digest  = OpenSSL::Digest.new('sha256')
-auth_key = Base64.encode64(OpenSSL::HMAC.digest(digest, secret_key, data)).strip
-p auth_key 
-```
-
-```php
-<?php
-$partner_id = '1';
-$access_id = 'test_id';
-$secret_key = 'test_pw';
-
-$data = $partner_id . ':' . $access_id;
-$auth_key = base64_encode(hash_hmac('sha256', $data, $secret_key, true));
-echo $auth_key;
-```
-
-```javascript
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/hmac-sha256.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64-min.js"></script>
-
-<script>
-	var partner_id = '1',
-    access_id = 'test_id',
-    secret_key = 'test_pw';
-
-	var data = partner_id + ':' + access_id;
-	var hash = CryptoJS.HmacSHA256(data, secret_key);
-	var auth_key = CryptoJS.enc.Base64.stringify(hash);
-
-	console.log(auth_key);
-</script>
-```
-
-<aside class="notice">
-The <code>partner_id</code>, <code>access_id</code>, and <code>secret_key</code> must use pre-assigned values.
-</aside>
-
-<aside class="notice">
-If you use javascript, use the <code>CryptoJS v3.1.2</code>(https://code.google.com/archive/p/crypto-js/) library.
-</aside>
-
-
-## 3. Encryption request body
+## 2. Encryption request body
 If you have parameters to pass when calling api, you should encrypt the json string and put it in the header.
 You can encrypt the parameter information by referring to the encryption logic on the right using the secret_key that has been issued in advance with the json string.
 
@@ -308,16 +252,20 @@ Test version information: ruby <code>2.3.1</code>, php <code>7.1.7</code>
 </aside>
 
 <aside class="notice">
+If you use javascript, use the <code>CryptoJS v3.1.2</code>(https://code.google.com/archive/p/crypto-js/) library.
+</aside>
+
+<aside class="notice">
 The encryption decryption logic is based on the open source <code> cryptojs-aes-php </code> (https://github.com/brainfoolong/cryptojs-aes-php).
 </aside>
 
 
-## 4. Set request header
+## 3. Set request header
 
 - <code>Content-Type</code> : "application/json; charset=utf-8"
 - <code>PARTNER-ID</code> : The partner ID
-- <code>KEY</code> : Authentication key encrypted in <a href="#2-encryption-authorization-key">step 2</a>
-- <code>SIGNATURE</code> : If there is a request parameter to be transmitted, the value encrypted in <a href="#3-encryption-request-body">step 3</a>
+- <code>KEY</code> : The partner access_id
+- <code>SIGNATURE</code> : If there is a request parameter to be transmitted, the value encrypted in <a href="#2-encryption-request-body">step 2</a>
 
 <aside class="notice">
 You can omit <code>SIGNATURE</code> for endpoints that do not need to send parameters.
@@ -329,7 +277,7 @@ You can omit <code>SIGNATURE</code> for endpoints that do not need to send param
 {
   "Content-Type" : "application/json; charset=utf-8",
   "PARTNER-ID" : "your partner id here",
-  "KEY" : "encrypted authorization key here",
+  "KEY" : "your access_id here",
   "SIGNATURE" : "encrypted request parameter here"
 }
 ```

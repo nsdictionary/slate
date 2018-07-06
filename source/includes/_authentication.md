@@ -256,7 +256,7 @@ javascript를 사용하신다면 암호화할때 <code>CryptoJS v3.1.2</code>(ht
 </aside>
 
 <aside class="notice">
-암복호화 로직은 오픈소스인<code> cryptojs-aes-php </code> (https://github.com/brainfoolong/cryptojs-aes-php)를 베이스로 수정해서 사용했습니다.
+암복호화 로직은 오픈소스인<code>cryptojs-aes-php</code> (https://github.com/brainfoolong/cryptojs-aes-php)를 베이스로 수정해서 사용했습니다.
 </aside>
 
 

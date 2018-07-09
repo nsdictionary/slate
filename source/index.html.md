@@ -39,6 +39,7 @@ search: true
 
 # Getting Started
 아래 이미지와 같은 절차를 통해 송금이 진행됩니다.
+![Image](./images/outbound.png)
 
 3가지 단계를 통해 센트비 API를 사용하실 수 있습니다:
 

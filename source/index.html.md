@@ -15,6 +15,7 @@ includes:
   - api/user/user_info
   - api/user/register_user
   - api/user/get_list_data
+  - api/user/update_user_info
   - api/verifications/create_bank_verification
   - api/verifications/create_document_verification
   - api/verifications/create_mobile_verification

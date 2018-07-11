@@ -36,6 +36,7 @@ search: true
 ---
 
 # Introduction
+currently in beta
 
 # Getting Started
 아래 이미지와 같은 절차를 통해 송금이 진행됩니다.

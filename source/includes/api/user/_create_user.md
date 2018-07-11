@@ -11,7 +11,7 @@
 
 Parameter | Requried | Description
 --------- | ------- | -----------
-external_id |O| 파트너사 유저 고유 ID
+external_id |O| 파트너사 유저 고유 id
 nationality |O| 국적 국가 코드 (ISO ALPHA-2 Code)
 phone_number |O| 휴대폰 번호
 phone_country_code |O| 휴대폰 번호 국가 코드 (ISO ALPHA-2 Code)

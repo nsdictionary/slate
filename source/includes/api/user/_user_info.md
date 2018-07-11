@@ -1,6 +1,6 @@
 ## user info
 
-송금인 정보를 조회합니다.
+송금인(유저) 정보를 조회합니다.
 
 ### endpoint
 <code>GET: /outbound/users</code><br/>
